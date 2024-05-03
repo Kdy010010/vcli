@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Viewer</title>
+    <style>
+        /* 스타일링 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea, #output {
+            width: 100%;
+            min-height: 300px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Markdown Viewer</h1>
+    <textarea id="markdownInput" placeholder="Markdown 형식의 텍스트를 입력하세요..."></textarea>
+    <button onclick="renderMarkdown()">변환</button>
+    <div id="output"></div>
+
+    <script>
+        function renderMarkdown() {
+            var input = document.getElementById('markdownInput').value;
+            var output = document.getElementById('output');
+            
+            // Markdown을 HTML로 변환하여 출력
+            output.innerHTML = marked(input);
+        }
+    </script>
+
+    <!-- Markdown을 HTML로 변환해주는 라이브러리 (marked.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</body>
+</html>
